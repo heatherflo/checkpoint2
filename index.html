@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'
+    integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Checkpoint2</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="row pb-4">
+        <h1 class="primary-text text-center text-dark p-4 border-bottom border-1 border-dark">
+          Applause Points</h1>
+
+
+      </div>
+
+
+    </div>
+
+  </header>
+
+  <main>
+    <div class="container-fluid">
+      <section class="row ">
+        <!-- //NOTE upgrade item on left -->
+        <div class="col-7">
+          <div class="d-flex justify-content-around pb-4">
+            <button class="btn border border-1 border-dark p-5 fs-2 primary-text">beer <span
+                class="mdi mdi-glass-mug"></span>
+              <div>
+                20 <span class="mdi mdi-hand-clap"></span>
+              </div>
+            </button>
+
+            <button class="btn border border-1 border-dark p-5 fs-2 primary-text">popcorn <span
+                class="mdi mdi-popcorn"></span>
+              <div>
+                40 <span class="mdi mdi-hand-clap"></span>
+              </div>
+
+
+            </button>
+          </div>
+          <div class="d-flex justify-content-around">
+            <button class="btn border border-1 border-dark p-5 fs-2 primary-text">hotdog <span
+                class="mdi mdi-food-hot-dog"></span>
+              <div>
+                60 <span class="mdi mdi-hand-clap"></span>
+              </div>
+            </button>
+
+            <button class="btn border border-1 border-dark p-2 fs-2 primary-text ">bring a friend <span
+                class="mdi mdi-account-plus-outline"></span>
+
+              <div>
+                200 <span class="mdi mdi-hand-clap"></span>
+              </div>
+            </button>
+
+          </div>
+        </div>
+        <!-- //NOTE clickable football player -->
+
+        <div class="col-5 d-flex justify-content-center align-items-center">
+          <div onclick="applause()">
+            <img src="https://t4.ftcdn.net/jpg/00/70/06/31/360_F_70063179_d6GCO56KmUzLeDJWo2xvZeaT6bnF2N1V.jpg"
+              alt="football player">
+          </div>
+        </div>
+
+      </section>
+
+      <!-- //NOTE tally board of applause points -->
+
+      <section class="row justify-content-center pb-4">
+        <div class="col-8 ">
+          <div>
+            <div class="card text-center applause text-light fs-3 mt-4">
+              <div id="applause" class="p-3">
+                APPLAUSE <span class="mdi mdi-hand-clap"></span></div>
+
+            </div>
+
+          </div>
+
+      </section>
+
+      <!-- //NOTE tally board of upgrade costs -->
+      <section class="row justify-content-around">
+        <div class="col-3 border rounded-2 border-1 border-dark text-dark p-2">
+          <p><span class="mdi mdi-glass-mug"></span> beer purchased: 0</p>
+          <p><span class="mdi mdi-popcorn"></span> popcorn purchased: 0</p>
+          <p><span class="mdi mdi-food-hot-dog"></span> hot dog purchased: 0</p>
+          <p><span class="mdi mdi-account-plus-outline"></span> friends invited: 0</p>
+
+
+        </div>
+
+
+
+      </section>
+    </div>
+
+  </main>
+
+
+  <footer>
+
+  </footer>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>

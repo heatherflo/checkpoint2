@@ -1,0 +1,11 @@
+body {
+  background-color: rgb(132, 173, 132);
+}
+
+.primary-text {
+  font-family: 'Nova Mono', monospace;
+}
+
+.applause {
+  background-color: rgba(36, 60, 36, 0.715)
+}
