@@ -9,3 +9,7 @@ body {
 .applause {
   background-color: rgba(36, 60, 36, 0.715)
 }
+
+.footballGuy {
+  cursor: grab;
+}
