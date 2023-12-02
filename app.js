@@ -68,6 +68,9 @@ function updateItem() {
   document.getElementById('hotdog1').innerHTML = template
   document.getElementById('friend1').innerHTML = template
 
+}
+
+function updateExtra() {
 
 
 }
