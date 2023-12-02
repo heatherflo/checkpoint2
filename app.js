@@ -4,6 +4,7 @@ console.log("Green Monster")
 
 let points = 0
 let quantity = 0
+let upgradedPoints = 0
 
 const upgrades = [{
   name: "beer",
@@ -22,7 +23,7 @@ let automaticUpgrades = [{
   name: "hotdog",
   price: 60,
   quantity: 0,
-  multiplier: 10,
+  multiplier: 20,
 },
 {
   name: "friend",
@@ -35,6 +36,7 @@ let automaticUpgrades = [{
 function applause() {
   console.log("applause", points)
   points += 10
+
   updateApplause()
 }
 
@@ -52,40 +54,58 @@ function buyItem(itemName) {
     points -= boughtItem.price
   }
   console.log("bought item", boughtItem, points)
-  updateItem()
+  // updateItem()
   updateApplause()
 
 }
 
-function buyAutoUpgrade(itemName) {
+function buyAutoUpgrade(upgradedName) {
 
-  let boughtUpgrades = automaticUpgrades.find(item => item.name == itemName)
+  let boughtUpgrades = automaticUpgrades.find(item => item.name == upgradedName)
   console.log("auto upgrades", boughtUpgrades)
-  if (points >= boughtUpgrades.price) { boughtUpgrades.quantity += (1 * boughtUpgrades.multiplier) }
-  if (points >= boughtUpgrades.price) { points -= boughtUpgrades.price }
-  console.log("autoUpgrade", boughtUpgrades)
+  if (points >= boughtUpgrades.price) { boughtUpgrades.quantity += 1 }
 
+  if (points >= boughtUpgrades.price) { points -= boughtUpgrades.price }
   updateApplause()
+  // upgradeApplause()
 }
+// if (boughtUpgrades.quantity >= 1) {
+//   points += boughtUpgrades.multiplier
+
+
+// upgradeApplause()
+
+
+// function upgradeApplause(upgradeName) {
+//   let boughtItem = automaticUpgrades.find(item => item.name == upgradeName)
+//   console.log(boughtItem, "bought Item")
+//   let upgradedPoints = boughtItem.multiplier
+//   upgradedPoints == points
+//   console.log(upgradedPoints, "new points")
+
+//   updateApplause()
+// }
+
+
+
 
 function updateItem() {
   //this will enable the page to showcase the updated quantity and price of each item (beer or popcorn)
 
 }
 
+function buyFriend(friend) {
+  let boughtFriend = automaticUpgrades.find(item => item.name == friend)
+  if (points >= boughtFriend.price) { boughtFriend.quantity += 1 }
 
-// function updateItem() {
-//   let template = ""
+  if (points >= boughtFriend.price) { points -= boughtFriend.price }
 
-//   upgrades.forEach(item => {
-//     if (item.quantity > 0) {
-//       template += `
-//       <span>${item.quantity}</span>`
-//     }
-//   })
-//   document.getElementById('beer1').innerHTML = template
-//   document.getElementById('popcorn1').innerHTML = template
-//   document.getElementById('hotdog1').innerHTML = template
-//   document.getElementById('friend1').innerHTML = template
 
-// }
+  // setInterval(applause, 3000)
+
+
+  console.log(points, boughtFriend, "friend")
+  updateApplause()
+}
+
+// setInterval(applause, 3000)
