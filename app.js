@@ -9,21 +9,26 @@ const upgrades = [{
   name: "beer",
   price: 20,
   quantity: 0,
+  multiplier: 1
 },
 {
   name: "popcorn",
   price: 40,
   quantity: 0,
-},
-{
+  multiplier: 1,
+}]
+
+let automaticUpgrades = [{
   name: "hotdog",
   price: 60,
   quantity: 0,
+  multiplier: 10,
 },
 {
   name: "friend",
   price: 200,
   quantity: 0,
+  multiplier: 100,
 }
 ]
 
@@ -52,25 +57,35 @@ function buyItem(itemName) {
 
 }
 
+function buyAutoUpgrade(itemName) {
 
+  let boughtUpgrades = automaticUpgrades.find(item => item.name == itemName)
+  console.log("auto upgrades", boughtUpgrades)
+  if (points >= boughtUpgrades.price) { boughtUpgrades.quantity += (1 * boughtUpgrades.multiplier) }
+  if (points >= boughtUpgrades.price) { points -= boughtUpgrades.price }
+  console.log("autoUpgrade", boughtUpgrades)
+
+  updateApplause()
+}
 
 function updateItem() {
-  let template = ""
-
-  upgrades.forEach(item => {
-    if (item.quantity > 0) {
-      template += `
-      <span>${item.quantity}</span>`
-    }
-  })
-  document.getElementById('beer1').innerHTML = template
-  document.getElementById('popcorn1').innerHTML = template
-  document.getElementById('hotdog1').innerHTML = template
-  document.getElementById('friend1').innerHTML = template
+  //this will enable the page to showcase the updated quantity and price of each item (beer or popcorn)
 
 }
 
-function updateExtra() {
 
+// function updateItem() {
+//   let template = ""
 
-}
+//   upgrades.forEach(item => {
+//     if (item.quantity > 0) {
+//       template += `
+//       <span>${item.quantity}</span>`
+//     }
+//   })
+//   document.getElementById('beer1').innerHTML = template
+//   document.getElementById('popcorn1').innerHTML = template
+//   document.getElementById('hotdog1').innerHTML = template
+//   document.getElementById('friend1').innerHTML = template
+
+// }
