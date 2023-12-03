@@ -27,7 +27,7 @@ let automaticUpgrades = [{
 },
 {
   name: "friend",
-  price: 20,
+  price: 200,
   quantity: 0,
   multiplier: 100,
 }
@@ -101,7 +101,7 @@ function buyFriend(friend) {
   if (points >= boughtFriend.price) { points -= boughtFriend.price }
 
 
-  setInterval(applause, 3000)
+  // setInterval(applause, 3000)
 
 
   console.log(points, boughtFriend, "friend")
@@ -113,7 +113,7 @@ function updateFriend() {
   //update friend quantity to the DOM
   let template = " "
   automaticUpgrades.forEach(friend => {
-    if (friend.quantity > 0) {
+    if (friend.quantity >= 1) {
       template += `<span>+ ${friend.quantity}</span>`
     }
   })
