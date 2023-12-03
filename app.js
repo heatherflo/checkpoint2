@@ -37,6 +37,9 @@ function applause() {
   console.log("applause", points)
   points += 10
 
+
+
+
   updateApplause()
 }
 
@@ -78,14 +81,14 @@ function buyPopcorn(popcorn) {
   }
   console.log("bought item", boughtItem, points)
   // updateItem()
-  updateApplause()
   updatePopcorn()
+  updateApplause()
 
 }
 
 function updatePopcorn() {
   let template = " "
-  upgrades.every(popcorn => {
+  upgrades.forEach(popcorn => {
     if (popcorn.quantity >= 1) {
       template += `quantity <span>+ ${popcorn.quantity}`
     }
@@ -106,11 +109,10 @@ function buyBoost(hotdog) {
 }
 
 
-
 function updateBoost() {
   //this will enable the page to showcase the updated quantity and price of each item (beer or popcorn)
   let template = " "
-  automaticUpgrades.every(hotdog => {
+  automaticUpgrades.forEach(hotdog => {
     if (hotdog.quantity >= 1) {
       template += `<span>+ ${hotdog.quantity}</span>`
     }
@@ -127,7 +129,7 @@ function buyFriend(friend) {
   if (points >= boughtFriend.price) { points -= boughtFriend.price }
 
 
-  // setInterval(applause, 3000)
+  setInterval(applause, 3000)
 
 
   console.log(points, boughtFriend, "friend")
@@ -149,4 +151,19 @@ function updateFriend() {
 
 }
 
-// setInterval(applause, 5000)
+// function updateItem() {
+
+//   upgrades.forEach(item => {
+
+//     let updatedItem = document.getElementById(item.name)
+
+//     let itemStats = updatedItem.querySelector('.stats')
+
+
+//     itemStats.innerHTML = `quantity +${item.quantity}`
+//   })
+// }
+
+
+
+setInterval(applause, 5000)
