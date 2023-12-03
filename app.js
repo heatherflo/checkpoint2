@@ -61,7 +61,7 @@ function buyBeer(beer) {
 
 function updateBeer() {
   let template = " "
-  upgrades.find(beer => {
+  upgrades.every(beer => {
     if (beer.quantity >= 1) {
       template += `<span>quantity + ${beer.quantity}`
     }
@@ -85,7 +85,7 @@ function buyPopcorn(popcorn) {
 
 function updatePopcorn() {
   let template = " "
-  upgrades.find(popcorn => {
+  upgrades.every(popcorn => {
     if (popcorn.quantity >= 1) {
       template += `quantity <span>+ ${popcorn.quantity}`
     }
@@ -110,7 +110,7 @@ function buyBoost(hotdog) {
 function updateBoost() {
   //this will enable the page to showcase the updated quantity and price of each item (beer or popcorn)
   let template = " "
-  automaticUpgrades.find(hotdog => {
+  automaticUpgrades.every(hotdog => {
     if (hotdog.quantity >= 1) {
       template += `<span>+ ${hotdog.quantity}</span>`
     }
@@ -140,7 +140,7 @@ function updateFriend() {
   //update friend quantity to the DOM
 
   let template = " "
-  automaticUpgrades.find(friend => {
+  automaticUpgrades.every(friend => {
     if (friend.quantity >= 1) {
       template += `<span>+ ${friend.quantity}</span>`
     }
