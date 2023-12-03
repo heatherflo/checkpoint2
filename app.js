@@ -46,8 +46,8 @@ function updateApplause() {
 
 }
 
-function buyItem(itemName) {
-  let boughtItem = upgrades.find(item => item.name == itemName)
+function buyBeer(beer) {
+  let boughtItem = upgrades.find(item => item.name == beer)
   if (points >= boughtItem.price) { boughtItem.quantity += 1 }
 
   if (points >= boughtItem.price) {
@@ -56,41 +56,67 @@ function buyItem(itemName) {
   console.log("bought item", boughtItem, points)
   // updateItem()
   updateApplause()
-
+  updateBeer()
 }
 
-function buyAutoUpgrade(upgradedName) {
+function updateBeer() {
+  let template = " "
+  upgrades.find(beer => {
+    if (beer.quantity >= 1) {
+      template += `<span>quantity + ${beer.quantity}`
+    }
+  })
+  document.getElementById('buyBeer').innerHTML = template
+}
 
-  let boughtUpgrades = automaticUpgrades.find(item => item.name == upgradedName)
-  console.log("auto upgrades", boughtUpgrades)
-  if (points >= boughtUpgrades.price) { boughtUpgrades.quantity += 1 }
+function buyPopcorn(popcorn) {
+  let boughtItem = upgrades.find(item => item.name == popcorn)
+  if (points >= boughtItem.price) { boughtItem.quantity += 1 }
 
-  if (points >= boughtUpgrades.price) { points -= boughtUpgrades.price }
+  if (points >= boughtItem.price) {
+    points -= boughtItem.price
+  }
+  console.log("bought item", boughtItem, points)
+  // updateItem()
   updateApplause()
-  // upgradeApplause()
+  updatePopcorn()
+
 }
-// if (boughtUpgrades.quantity >= 1) {
-//   points += boughtUpgrades.multiplier
+
+function updatePopcorn() {
+  let template = " "
+  upgrades.find(popcorn => {
+    if (popcorn.quantity >= 1) {
+      template += `quantity <span>+ ${popcorn.quantity}`
+    }
+  })
+  document.getElementById('buyPopcorn').innerHTML = template
+}
+
+function buyBoost(hotdog) {
+
+  let boughtBoost = automaticUpgrades.find(item => item.name == hotdog)
+  console.log("auto upgrades", boughtBoost)
+  if (points >= boughtBoost.price) { boughtBoost.quantity += 1 }
+
+  if (points >= boughtBoost.price) { points -= boughtBoost.price }
+  updateBoost()
+  updateApplause()
+
+}
 
 
-// upgradeApplause()
 
-
-// function upgradeApplause(upgradeName) {
-//   let boughtItem = automaticUpgrades.find(item => item.name == upgradeName)
-//   console.log(boughtItem, "bought Item")
-//   let upgradedPoints = boughtItem.multiplier
-//   upgradedPoints == points
-//   console.log(upgradedPoints, "new points")
-
-//   updateApplause()
-// }
-
-
-
-
-function updateItem() {
+function updateBoost() {
   //this will enable the page to showcase the updated quantity and price of each item (beer or popcorn)
+  let template = " "
+  automaticUpgrades.find(hotdog => {
+    if (hotdog.quantity >= 1) {
+      template += `<span>+ ${hotdog.quantity}</span>`
+    }
+  })
+  document.getElementById('buyHotdog').innerHTML = template
+
 
 }
 
@@ -105,17 +131,22 @@ function buyFriend(friend) {
 
 
   console.log(points, boughtFriend, "friend")
-  updateApplause()
+
   updateFriend()
+  updateApplause()
 }
 
 function updateFriend() {
   //update friend quantity to the DOM
+
   let template = " "
-  automaticUpgrades.forEach(friend => {
+  automaticUpgrades.find(friend => {
     if (friend.quantity >= 1) {
       template += `<span>+ ${friend.quantity}</span>`
     }
   })
-  document.getElementById('friend').innerHTML = template
+  document.getElementById('buyFriend').innerHTML = template
+
 }
+
+// setInterval(applause, 5000)
