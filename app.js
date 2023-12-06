@@ -8,7 +8,7 @@ const upgrades = [{
   name: "beer",
   price: 20,
   quantity: 0,
-  multiplier: 1
+  multiplier: 1,
 },
 {
   name: "popcorn",
@@ -35,6 +35,7 @@ let automaticUpgrades = [{
 function applause() {
   points += 10
   drawApplause()
+  upgradedApplause()
 }
 
 function drawApplause() {
@@ -42,18 +43,66 @@ function drawApplause() {
 }
 
 function buyItem(itemName) {
-  let boughtItem = upgrades.find(item => item.name = itemName)
+  let boughtItem = upgrades.find(item => item.name == itemName)
   if (points >= boughtItem.price) {
     points -= boughtItem.price,
       boughtItem.quantity += 1,
-      boughtItem.price += 5,
+      //NOTE this adds 5 to 'each' item price- not just the beer price
+      // boughtItem.price += 5,
       console.log(boughtItem, 'item bought')
 
   }
+  // drawItem()
   drawApplause()
+
 }
 
+// 
+// function drawItem(itemName) {
+// console.log('draw item')
+//NOTE tried updating the DOM in two different ways- query selector and via a template to the HTML
 
+// upgrades.forEach(item => {
+//   let itemElm = document.getElementById(item.name)
+//   console.log(itemElm, "itemElm")
+//   let statsElm = itemElm.querySelector('stats')
+//   console.log(statsElm, "statsElm")
+//   // @type {HTMLDivElement}
+//   // @ts-ignore
+//   statsElm.innerText = `quantity +${item.quantity}`
+// })
+//NOTE this isn't working because the IDs are not individual to each other 
+// let template = ""
+// upgrades.forEach(item => {
+//   if (item.quantity > 0) {
+//     template += `beer<span class="mdi mdi-glass-mug"></span>
+//     <div>
+//       ${item.price}
+//       <span class="mdi mdi-hand-clap"></span>
+//     </div>
+//     <div  class="smallText">
+//       quantity +${item.quantity}
+//     </div>`
+//   }
+// })
+
+// document.getElementById('drawItem').innerHTML = template
+// drawApplause()
+// }
+
+function upgradedApplause() {
+  // console.log('upgraded applause', '🙌🏻')
+  let upgradedPoints = 0
+  upgrades.forEach(upgrade => {
+    upgradedPoints += upgrade.price * upgrade.multiplier
+  })
+  // console.log(upgradedPoints, 'upgraded points')
+  drawApplause()
+  //NOTE need to change the points logged on the DOM on the applause points bar
+
+  // upgrades.forEach(upgrade => points += upgrade.multiplier * upgrade.quantity)
+  // console.log(upgrades, 'upgrades')
+}
 
 
 
