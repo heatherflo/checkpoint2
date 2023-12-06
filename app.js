@@ -42,7 +42,7 @@ function drawApplause() {
 }
 
 function buyItem(itemName) {
-  let boughtItem = upgrades.find(item => itemName)
+  let boughtItem = upgrades.find(item => item.name = itemName)
   if (points >= boughtItem.price) {
     points -= boughtItem.price,
       boughtItem.quantity += 1,
@@ -50,6 +50,7 @@ function buyItem(itemName) {
       console.log(boughtItem, 'item bought')
 
   }
+  drawApplause()
 }
 
 
