@@ -47,7 +47,6 @@ function buyItem(itemName) {
   if (points >= boughtItem.price) {
     points -= boughtItem.price,
       boughtItem.quantity += 1,
-      //NOTE this adds 5 to 'each' item price- not just the beer price
       boughtItem.price += 5,
       console.log(boughtItem, 'item bought')
 
@@ -91,10 +90,13 @@ function buyItem(itemName) {
 // }
 
 function upgradedApplause() {
-  // console.log('upgraded applause', '🙌🏻')
+  console.log('upgraded applause', '🙌🏻')
   let upgradedPoints = 0
   upgrades.forEach(upgrade => {
-    upgradedPoints += upgrade.price * upgrade.multiplier
+    //TODO what do I put here??
+    if ('quantity goes up by one') {
+      upgradedPoints += upgrade.price * upgrade.multiplier
+    }
   })
   // console.log(upgradedPoints, 'upgraded points')
   drawApplause()
