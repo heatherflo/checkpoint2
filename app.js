@@ -48,7 +48,7 @@ function buyItem(itemName) {
     points -= boughtItem.price,
       boughtItem.quantity += 1,
       //NOTE this adds 5 to 'each' item price- not just the beer price
-      // boughtItem.price += 5,
+      boughtItem.price += 5,
       console.log(boughtItem, 'item bought')
 
   }
