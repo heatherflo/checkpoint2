@@ -41,6 +41,16 @@ function drawApplause() {
   document.getElementById('applause').innerText = points.toString()
 }
 
+function buyItem(itemName) {
+  let boughtItem = upgrades.find(item => itemName)
+  if (points >= boughtItem.price) {
+    points -= boughtItem.price,
+      boughtItem.quantity += 1,
+      boughtItem.price += 5,
+      console.log(boughtItem, 'item bought')
+
+  }
+}
 
 
 
