@@ -95,7 +95,6 @@ function upgradedApplause() {
     upgradedPoints += upgrade.quantity * upgrade.multiplier
   })
   points += upgradedPoints
-
 }
 
 //drawing NEW total to the DOM
@@ -111,6 +110,17 @@ function drawTotalForClickUpgrades() {
   clickTotalElm.innerText = upgradedPoints.toString()
 }
 
+function buyAuto(itemName) {
+  let boughtItem = automaticUpgrades.find(item => item.name == itemName)
+  if (points >= boughtItem.price) {
+    points -= boughtItem.price,
+      boughtItem.quantity += 1,
+      boughtItem.price += 5,
+      console.log(boughtItem, 'AutoItem bought')
+  }
+  drawApplause()
+  drawAuto()
+}
 
 //this is collecting the auto upgrades and calculating the NEW total based on the points it generates. 
 function collectAuto() {
@@ -119,19 +129,49 @@ function collectAuto() {
   automaticUpgrades.forEach(upgrade => total += upgrade.quantity * upgrade.multiplier)
 
   points += total
+
   drawApplause()
+  console.log(total, "collectAuto")
+
 }
+
+// function drawAuto() {
+//   console.log('drawAuto')
+//   automaticUpgrades.forEach(item => {
+//     let itemElm = document.getElementById(item.name)
+//     let priceElm = itemElm.querySelector('.price')
+//     // @ts-ignore
+//     priceElm.innerText = item.price
+//     let statsElm = itemElm.querySelector('.stats')
+//     // @ts-ignore
+//     statsElm.innerText = `quantity +${item.quantity}`
+//   })
+//   drawApplause()
+// }
 
 function drawAuto() {
+  console.log('draw item')
 
+  automaticUpgrades.forEach(item => {
+
+    let itemElm = document.getElementById(item.name)
+    console.log(itemElm, "itemElm")
+
+    let statsElm = itemElm.querySelector('.stats')
+    console.log(statsElm, "statsElm")
+    // @ts-ignore
+    statsElm.innerText = `quantity +${item.quantity}`
+
+
+    let priceElm = itemElm.querySelector('.price')
+    // @ts-ignore
+    priceElm.innerText = item.price
+
+  })
 }
-
-
 
 
 setInterval((collectAuto), 3000)
-
-
 
 
 
