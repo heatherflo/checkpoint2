@@ -36,23 +36,29 @@
         <!-- //NOTE upgrade item on left -->
         <div class="col-7">
           <div class="d-flex justify-content-around pb-4">
-            <button onclick="buyItem('beer')" class="btn border border-1 border-dark p-5 fs-2 primary-text ">beer <span
+            <button id="beer" onclick="buyItem('beer')"
+              class="btn border border-1 border-dark p-5 fs-2 primary-text ">beer <span
                 class="mdi mdi-glass-mug"></span>
               <div>
-                20
+                <span class="price">20</span>
                 <span class="mdi mdi-hand-clap"></span>
+              </div>
+              <div class="smallText">
+                boosts +1<span class="mdi mdi-hand-clap"></span>
               </div>
               <div class="smallText stats">
                 quantity +0
               </div>
             </button>
 
-            <button onclick="buyItem('popcorn')" class="btn border border-1 border-dark p-5 fs-2 primary-text ">popcorn
+            <button id="popcorn" onclick="buyItem('popcorn')"
+              class="btn border border-1 border-dark p-5 fs-2 primary-text ">popcorn
               <span class="mdi mdi-popcorn"></span>
               <div>
-                40 <span class="mdi mdi-hand-clap"></span>
+                <span class="price">40</span>
+                <span class="mdi mdi-hand-clap"></span>
               </div>
-              <!-- NOTE what draw item will look like -->
+              <div class="smallText">boosts +5<span class="mdi mdi-hand-clap"></span></div>
               <div class="smallText stats">
                 quantity +0
               </div>
@@ -61,13 +67,17 @@
 
 
           <div class="d-flex justify-content-around">
-            <button onclick="buyBoost('hotdog')" class="btn border border-1 border-dark p-5 fs-2 primary-text">hotdog
+            <button id="hotdog" onclick="buyItem('hotdog')"
+              class="btn border border-1 border-dark p-5 fs-2 primary-text">hotdog
               <span class="mdi mdi-food-hot-dog"></span>
-              <div>
-                60 <span class="mdi mdi-hand-clap"></span>
+              <div><span class="price">60</span>
+                <span class="mdi mdi-hand-clap"></span>
               </div>
               <div class="smallText">
-                boosts <span class="mdi mdi-hand-clap"> + 10</span>
+                boosts +10<span class="mdi mdi-hand-clap"></span>
+              </div>
+              <div class="smallText stats">
+                quantity +0
               </div>
             </button>
 
@@ -116,7 +126,7 @@
         <span class=" col-3 ">
           <div class="card text-center btn-color text-light fs-2 mt-5 ">
             <span>
-              <span class="mdi mdi-food-hot-dog"> boosts</span>
+              <span class="">Click Upgrade</span>
             </span>
 
 
@@ -141,7 +151,7 @@
     <section class="row justify-content-center align-items-top ">
       <div class="col-2">
         <div class="card btn-color text-light text-center  fs-4 ">
-          <span id="buyHotdog">+ 0</span>
+          <span id="clickTotal">+ 0</span>
 
         </div>
       </div>
